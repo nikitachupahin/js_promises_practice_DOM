@@ -25,7 +25,7 @@ const firstPromise = new Promise((resolve, reject) => {
       settled = true;
       document.removeEventListener('mousedown', handler);
       clearTimeout(timerId);
-      resolve('First promise was resolved on a left click in the document');
+      resolve('First promise was resolved');
     }
   };
 
@@ -35,7 +35,8 @@ const firstPromise = new Promise((resolve, reject) => {
     if (!settled) {
       settled = true;
       document.removeEventListener('mousedown', handler);
-      reject('First promise was rejected in 3 seconds if not clicked');
+      // eslint-disable-next-line prefer-promise-reject-errors
+      reject('First promise was rejected');
     }
   }, 3000);
 });
